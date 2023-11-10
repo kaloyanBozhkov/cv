@@ -1,7 +1,19 @@
 import Image from "next/image";
-import CuteLink from "../atoms/CuteLink.atom";
+import CuteLink, { CuteLinkPdf } from "../atoms/CuteLink.atom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDown } from "@fortawesome/free-regular-svg-icons";
+import {
+  View,
+  Text,
+  Link,
+  Image as ImagePdf,
+  PDFDownloadLink,
+} from "@react-pdf/renderer";
+import { tw } from "tailwind.config";
+import { default as LinkNext } from "next/link";
+import { MyCVDocument } from "@/pages/pdf";
+import useClientVariable from "@/hooks/useClientVariable";
+import DotsLoader from "../atoms/DotsLoader.atom";
 
 const Person = ({
   name,
@@ -9,22 +21,22 @@ const Person = ({
   linkedIn,
   gitHub,
   email,
-  onDownloadCV,
 }: {
   name: string;
   picSrc: string;
   email: string;
   linkedIn: string;
   gitHub: string;
-  onDownloadCV?: () => void;
 }) => {
+  const w = useClientVariable(() => window);
+
   return (
     <div className="flex flex-col-reverse flex-nowrap gap-4 sm:flex-row">
       <div className="flex flex-1 flex-col">
         <h1 className="text- py-3 text-5xl font-semibold tracking-tighter">
           {name}
         </h1>
-        <div className="h-px w-full bg-black" />
+        <div className="h-px w-full bg-gray-400" />
         <div className="flex flex-col gap-1 py-3">
           <h2>
             <b>Email:</b>{" "}
@@ -40,23 +52,33 @@ const Person = ({
             <CuteLink href={gitHub}>GitHub</CuteLink>
           </div>
         </div>
-        {onDownloadCV && (
-          <div className="mt-auto">
-            <button
-              onClick={onDownloadCV}
-              className="flex flex-row flex-nowrap items-center gap-2 border-b-[1px] border-transparent font-light opacity-50 hover:border-gray-500 hover:text-gray-700 hover:opacity-100"
+        <div className="mt-auto w-fit">
+          {w && (
+            <PDFDownloadLink
+              document={<MyCVDocument />}
+              fileName="kaloyan-bozhkov-full-stack-engineer-cv.pdf"
             >
-              <FontAwesomeIcon icon={faCircleDown} className="min-w-[15px]" />
-              <p className="whitespace-nowrap">Download as PDF</p>
-            </button>
-          </div>
-        )}
+              {({ loading }) =>
+                loading ? (
+                  <div className="-mt-4">
+                    <DotsLoader dotsBg="bg-gray-400" size="sm" />
+                  </div>
+                ) : (
+                  <div className="flex w-fit flex-row flex-nowrap items-center gap-2 border-b-[1px] border-transparent font-light opacity-50 hover:border-gray-500 hover:text-gray-700 hover:opacity-100">
+                    <FontAwesomeIcon icon={faCircleDown} className="w-[15px]" />
+                    <p className="whitespace-nowrap">Download as PDF</p>
+                  </div>
+                )
+              }
+            </PDFDownloadLink>
+          )}
+        </div>
       </div>
       <div>
         <Image
           src={picSrc}
           alt="My Picture"
-          className="h-auto w-fit border-[1px] border-black italic"
+          className="h-auto w-fit border-[1px] border-gray-500 italic"
           width={150}
           height={150}
         />
@@ -66,3 +88,53 @@ const Person = ({
 };
 
 export default Person;
+
+export const PdfPerson = ({
+  name,
+  picSrc,
+  linkedIn,
+  gitHub,
+  email,
+}: {
+  name: string;
+  picSrc: string;
+  email: string;
+  linkedIn: string;
+  gitHub: string;
+}) => {
+  return (
+    <View style={tw("flex flex-col-reverse flex-nowrap gap-4 sm:flex-row")}>
+      <View style={tw("flex flex-1 flex-col")}>
+        <Text style={tw("py-3 text-5xl font-bold tracking-tighter")}>
+          {name}
+        </Text>
+        <View style={tw("h-px w-full bg-gray-500")} />
+        <View style={tw("flex flex-col gap-1 py-3")}>
+          <Text>
+            <Text style={tw("font-semibold text-[16px]")}>Email: </Text>
+            <Link
+              src={`mailto:${email}`}
+              style={tw("text-gray-500 text-[14px]")}
+            >
+              {email}
+            </Link>
+          </Text>
+          <View
+            style={tw("flex flex-row justify-items-center gap-2  text-[14px]")}
+          >
+            <Text>
+              <CuteLinkPdf href={linkedIn}>LinkedIn</CuteLinkPdf>
+            </Text>
+            <Text style={tw("text-gray-500")}>|</Text>
+            <Text>
+              <CuteLinkPdf href={gitHub}>GitHub</CuteLinkPdf>
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View style={tw("border-[1px] border-gray-500")}>
+        <ImagePdf src={picSrc} style={tw("h-[150px] w-[150px]")} />
+      </View>
+    </View>
+  );
+};

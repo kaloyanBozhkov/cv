@@ -20,7 +20,7 @@ const ScrollToTop = () => {
     >
       <FontAwesomeIcon
         icon={faArrowAltCircleUp}
-        className="min-w-[30px]"
+        className="w-[30px] min-w-[30px]"
         color="inherit"
       />
     </button>

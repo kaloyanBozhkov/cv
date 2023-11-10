@@ -1,4 +1,6 @@
 import { formatDate } from "@/utils/formatters";
+import { View, Text } from "@react-pdf/renderer";
+import { tw } from "tailwind.config";
 
 const Education = ({
   title,
@@ -30,3 +32,36 @@ const Education = ({
 };
 
 export default Education;
+
+export const EducationPDF = ({
+  title,
+  entity,
+  startDate,
+  endDate,
+  location,
+}: {
+  title: string;
+  entity: string;
+  startDate: Date;
+  endDate?: Date;
+  location: string;
+}) => {
+  return (
+    <View style={tw("w-full mb-4")}>
+      <View
+        style={tw(
+          "flex w-full flex-row flex-wrap items-center justify-between",
+        )}
+      >
+        <Text style={tw("min-w-[300px] pr-8 text-3xl font-bold leading-6")}>
+          {title}
+        </Text>
+        <Text style={tw("text-md text-gray-500 text-bold")}>{entity}</Text>
+      </View>
+      <Text style={tw("text-xs")}>
+        {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"},{" "}
+        {location}
+      </Text>
+    </View>
+  );
+};
