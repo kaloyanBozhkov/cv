@@ -17,7 +17,9 @@ const DotsLoader = ({
   const dotStyle = `absolute top-0 h-[13px] w-[13px] rounded-full ${dotsBg}`;
 
   return (
-    <div className={`relative inline h-[13px] w-[80px] ${sizeStyles} z-0`}>
+    <div
+      className={`relative inline h-[13px] w-[80px] ${sizeStyles} z-0 -ml-1 -mr-1`}
+    >
       <div
         className={`${dotStyle} left-[8px] z-[1] animate-[scale-in_0.6s_infinite]`}
       />

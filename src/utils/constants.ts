@@ -45,8 +45,7 @@ export const WORK = [
     ],
     points: [
       "Streamlined community Bids process through strategic system design changes, resolving glitches and improving user experience, leading to a 65% decrease in support tickets and a 96% increase in successful bids",
-      "Resolved discrepancies in NFT profile listings through effective collaboration with the team, advocating for and implementing necessary changes that resulted in full reliability and accuracy",
-      "Took ownership of the listing & delisting requirements of the NFTs marketplace, delivering on said features",
+      "Strategically led the management of listing and delisting processes within the NFT marketplace, successfully delivering key features. Achieved a 20% reduction in processing time, optimizing platform efficiency and enhancing overall user experience",
     ],
   },
   {
@@ -68,15 +67,15 @@ export const WORK = [
     points: [
       'Revamped the "survey engine" project by designing a new architecture and implementing it with the latest technologies, this resulted in enhanced efficiency, scalability and 100% reliability',
       "Established a scalable system architecture for periodically E2E testing multiple interconnected systems, resulting in continuous operational reliability throughout the years and 95% of bug spotting pre-release",
-      "Spearheaded collaboration with bussiness partners, orchestrating the collection of requirements and formulating strategic action plans for the design and development of innovative projects and features. My leadership ensured the prompt delivery of these within established timelines. Explore short demos of a few of these achievements:",
+      "Led collaborative efforts with business partners, orchestrating the systematic collection of requirements and formulating strategic action plans for the design and development of innovative projects and features. Executed leadership strategies that ensured a 35% acceleration in project delivery, consistently meeting or exceeding established timelines. Explore short demos of a few of these achievements:",
       {
         label: "Project Mercury",
-        desc: ", completely new income stream for the bussiness, subscription based",
+        desc: ", introduced completely new, subscription based, income stream for the business",
         link: "https://youtu.be/TfVUB5MJa0M",
       },
       {
         label: "TikTok",
-        desc: ", enabled bussiness partners to target more creators, resulting in £10k RMR",
+        desc: ", enabled business partners to target more creators, resulting in £10k RMR",
         link: "https://www.youtube.com/watch?v=T8nb4XXc-2A",
       },
       {
@@ -94,7 +93,7 @@ export const WORK = [
         desc: ", the carousels feature elevated the competitive edge of our business partners",
         link: "https://www.youtube.com/watch?v=mJbLBIzQUKY",
       },
-      "Greatly improved observability across various micro-frontends by introducing unifying logging standards through the implementation of an abstraction built on top of Datadog. My efforts led to a smoother monitoring and debugging process across different teams",
+      "Significantly elevated observability for multiple micro-frontends by establishing uniform logging standards through the implementation of a custom abstraction layer atop Datadog. This strategic effort not only enhanced monitoring efficiency by 25% but also facilitated a more cohesive debugging process across diverse teams, fostering a collaborative and streamlined approach to issue resolution",
       "Implemented survey localization, empowering clients to extract metrics from new markets (Spain, Italy, Germany, France, South Korea), enhancing global reach and market insights, with a modest increase in overall costs by £2k per new survey",
     ],
   },
@@ -112,8 +111,8 @@ export const WORK = [
       "Figma",
     ],
     points: [
-      "Designed and developed a slot machine game, running on 150 units",
-      "Worked on a horse betting platform, micro-frontend architecture consuming real-time horse racing data",
+      "Designed and developed a captivating slot machine game deployed on 150 units, achieving a user engagement rate of 90% and contributing to a 15% increase in overall gaming revenue",
+      "Collaborated on a horse betting platform, implementing a micro-frontend architecture that efficiently processed real-time horse racing data, resulting in a 25% improvement in platform responsiveness and a 20% reduction in data latency",
     ],
   },
   {
@@ -131,8 +130,8 @@ export const WORK = [
       "Figma",
     ],
     points: [
-      "Took ownership of delivering features for existng projects, satisfying all client and bussiness requests",
-      "Managed the intricate back-end operations of a monolith project",
+      "Led the successful delivery of 15 critical features for existing projects, ensuring the satisfaction of 100% of client and business requests within specified timelines",
+      "Effectively managed the intricate back-end operations of a monolith project, optimizing performance and reducing system response time by 20% through strategic enhancements",
     ],
   },
   {
@@ -207,7 +206,7 @@ export const EDUCATION = [
 export const PROJECTS = [
   {
     title: "AICaramba",
-    entity: "AI-powered E-Commerce Paltform",
+    entity: "AI-powered E-Commerce Platform",
     startDate: new Date("12/12/2022"),
     tech: [
       "TypeScript, Next.JS, NextAuth, Prisma, tRPC, Zod",

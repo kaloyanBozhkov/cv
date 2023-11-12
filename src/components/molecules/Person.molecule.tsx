@@ -60,11 +60,11 @@ const Person = ({
             >
               {({ loading }) =>
                 loading ? (
-                  <div className="-mt-4">
+                  <div className="h-[20px]">
                     <DotsLoader dotsBg="bg-gray-400" size="sm" />
                   </div>
                 ) : (
-                  <div className="flex w-fit flex-row flex-nowrap items-center gap-2 border-b-[1px] border-transparent font-light opacity-50 hover:border-gray-500 hover:text-gray-700 hover:opacity-100">
+                  <div className="flex h-[20px] w-fit flex-row flex-nowrap items-center gap-2 border-b-[1px] border-transparent font-light opacity-50 hover:border-gray-500 hover:text-gray-700 hover:opacity-100">
                     <FontAwesomeIcon icon={faCircleDown} className="w-[15px]" />
                     <p className="whitespace-nowrap">Download as PDF</p>
                   </div>
@@ -74,11 +74,11 @@ const Person = ({
           )}
         </div>
       </div>
-      <div>
+      <div className="min-w[150px] min-h-[150px]">
         <Image
           src={picSrc}
           alt="My Picture"
-          className="h-auto w-fit border-[1px] border-gray-500 italic"
+          className="h-auto w-fit border-[1px] border-gray-500 italic lg:max-w-[150px]"
           width={150}
           height={150}
         />
