@@ -21,12 +21,12 @@ const WorkPlace = ({
 }) => {
   return (
     <div className="flex w-full flex-col gap-4 md:gap-2">
-      <div className="gap=2 flex flex-row flex-wrap items-center justify-between">
+      <div className="gap=2 flex flex-col flex-wrap lg:flex-row lg:items-center lg:justify-between">
         <h1 className="min-w-[300px] pr-8 text-xl font-bold ">{position}</h1>
         {typeof info === "string" ? (
           <p className="text-gray-500">{info}</p>
         ) : (
-          <div className="flex flex-row items-center justify-center gap-2">
+          <div className="flex flex-row items-center gap-2 lg:justify-center">
             <p className="text-md text-gray-500">
               <b>{info.company}</b>
             </p>

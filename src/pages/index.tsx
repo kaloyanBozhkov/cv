@@ -1,3 +1,4 @@
+import CuteLink from "@/components/atoms/CuteLink.atom";
 import Separator from "@/components/atoms/Separator.atom";
 import Education from "@/components/molecules/Education.molecule";
 import InfoSection from "@/components/molecules/InfoSection.molecule";
@@ -24,7 +25,7 @@ export default function Home() {
         <title>Kaloyan Bozhkov</title>
         <meta
           name="description"
-          content="Senior Full-Stack Engineer | Node.JS | React | Next.JS | Prisma | React | tRPC | GraphQL | Rust | Python | Blockchain | Three.JS"
+          content="Senior Full-Stack Engineer | React | Next.JS | Node.JS | Prisma | React | tRPC | GraphQL | Rust | Python | Blockchain | Three.JS"
         />
         <meta
           name="keywords"
@@ -102,8 +103,8 @@ export default function Home() {
           </div>
         </InfoSection>
         <InfoSection sectionName="Education">
-          <div className="flex flex-col gap-14">
-            {EDUCATION.map(({ lines, ...educationProps }, idx) => {
+          <div className="flex flex-col">
+            {EDUCATION.map(({ lines, projects, ...educationProps }, idx) => {
               const isLast = idx === EDUCATION.length - 1;
               return (
                 <Fragment key={idx}>
@@ -116,6 +117,34 @@ export default function Home() {
                         </p>
                       ))}
                     </div>
+                    {projects?.map(({ title, tech, links }, idx) => {
+                      const isLast = idx === projects.length - 1;
+                      return (
+                        <div key={idx} className="mt-1 flex flex-col gap-1">
+                          <p className={isLast ? "text-xl" : ""}>
+                            <b>{title}</b>
+                          </p>
+                          <p className="-mt-1 font-mono">
+                            {linesFormatFE(tech)}
+                          </p>
+                          <div className="flex flex-row gap-1">
+                            {links.live && (
+                              <CuteLink href={links.live}>Live Link</CuteLink>
+                            )}
+                            {"git" in links && (
+                              <>
+                                |<CuteLink href={links.git}>GitHub</CuteLink>
+                              </>
+                            )}
+                            {"demo" in links && (
+                              <>
+                                |<CuteLink href={links.demo}>Demo</CuteLink>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                   <Separator
                     className={isLast ? "mt-7" : "my-7"}

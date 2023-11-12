@@ -1,3 +1,4 @@
+import { CuteLinkPdf } from "@/components/atoms/CuteLink.atom";
 import ListItem from "@/components/atoms/ListItemPdf.atom";
 import { SeparatorPDF } from "@/components/atoms/Separator.atom";
 import { EducationPDF } from "@/components/molecules/Education.molecule";
@@ -184,7 +185,7 @@ export const MyCVDocument = () => (
           </View>
         </InfoSectionPdf>
         <InfoSectionPdf sectionName="Education">
-          {EDUCATION.map(({ lines, ...educationProps }, idx) => {
+          {EDUCATION.map(({ lines, projects, ...educationProps }, idx) => {
             const isLast = idx === EDUCATION.length - 1;
             return (
               <Fragment key={idx}>
@@ -196,6 +197,33 @@ export const MyCVDocument = () => (
                         <Text style={tw("font-semibold")}>{bold} </Text>
                         <Text>{content}</Text>
                       </Text>
+                    ))}
+                    {projects?.map(({ title, tech, links }, idx) => (
+                      <View key={idx} style={tw("flex flex-col gap-1 mt-1")}>
+                        <Text style={tw("font-bold text-[20px]")}>{title}</Text>
+                        <View style={tw("font-mono -mt-2")}>
+                          {linesFormatPDF(tech)}
+                        </View>
+                        <View style={tw("flex flex-row gap-1")}>
+                          {links.live && (
+                            <CuteLinkPdf href={links.live}>
+                              Live Link
+                            </CuteLinkPdf>
+                          )}
+                          {"git" in links && (
+                            <>
+                              <Text style={tw("text-gray-500")}>|</Text>
+                              <CuteLinkPdf href={links.git}>GitHub</CuteLinkPdf>
+                            </>
+                          )}
+                          {"demo" in links && (
+                            <>
+                              <Text style={tw("text-gray-500")}>|</Text>
+                              <CuteLinkPdf href={links.git}>Demo</CuteLinkPdf>
+                            </>
+                          )}
+                        </View>
+                      </View>
                     ))}
                   </View>
                 </div>
