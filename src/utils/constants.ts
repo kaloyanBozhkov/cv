@@ -220,6 +220,19 @@ export const PROJECTS = [
     demoLink: "",
   },
   {
+    title: "MindTrace",
+    entity: "Sorting 3D Shapes",
+    startDate: new Date("7/09/2023"),
+    endDate: new Date("7/09/2023"),
+    tech: [
+      "React, Three.JS, SCSS/CSS3, Mantine UI",
+      "Clerk, React Three Fiber",
+    ],
+    repoUrl: "https://github.com/kaloyanBozhkov/mindtrace",
+    projectLink: "https://mindtrace-three.vercel.app/",
+    demoLink: "",
+  },
+  {
     title: "EnryptVid",
     entity: "Image Manipulation & Rendering on the Edge",
     startDate: new Date("1/09/2022"),
@@ -228,16 +241,6 @@ export const PROJECTS = [
     repoUrl: "https://github.com/kaloyanBozhkov/encrypt-vid",
     projectLink: "https://kaloyanbozhkov.com/encrypt-vid/",
     demoLink: "",
-  },
-  {
-    title: "EmperiaGraph",
-    entity: "Social Network & Group Dynamics Visualization",
-    startDate: new Date("7/09/2020"),
-    endDate: new Date("7/09/2020"),
-    tech: ["React, D3.JS, SCSS/CSS3, Redux", "Node.JS", "Express", "MySQL"],
-    repoUrl: "https://github.com/kaloyanBozhkov/EmperiaGraph",
-    projectLink: "https://kaloyanbozhkov.com/emperia",
-    demoLink: "https://youtu.be/y5wtaMj_duw",
   },
   {
     title: "Mini-Blockchain",
