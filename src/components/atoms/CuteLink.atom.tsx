@@ -10,7 +10,11 @@ const CuteLink = ({
   children: ReactNode;
 }) => {
   return (
-    <a href={href} className="text-gray-500 hover:text-gray-400">
+    <a
+      target="_blank"
+      href={href}
+      className="text-gray-500 hover:text-gray-400"
+    >
       {children}
     </a>
   );
