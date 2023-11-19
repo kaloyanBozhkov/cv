@@ -23,6 +23,7 @@ export default function Home() {
     <>
       <Head>
         <title>Kaloyan Bozhkov</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
           content="Senior Full-Stack Engineer | React | Next.JS | Node.JS | Prisma | React | tRPC | GraphQL | Rust | Python | Blockchain | Three.JS"
