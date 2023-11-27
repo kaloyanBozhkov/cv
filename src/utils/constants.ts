@@ -264,3 +264,12 @@ export const PROJECTS = [
     demoLink: "https://www.youtube.com/watch?v=p68tJGYXbpk",
   },
 ];
+
+export const OTHER = [
+  {
+    link: "https://medium.com/@kaloyan_17221/fix-vercel-next-js-fetch-failed-from-undici-polyfill-8c66346c9c2f",
+    linkLabel: "Medium Post",
+    title: "Next.JS + Vercel issue identified related to the undici polyfill",
+    desc: "Helped 150+ engineers with solving an edge-case caused by an issue with the compiled undici polyfill used by Vercel and Next.JS",
+  },
+];

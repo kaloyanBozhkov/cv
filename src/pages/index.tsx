@@ -2,6 +2,7 @@ import CuteLink from "@/components/atoms/CuteLink.atom";
 import Separator from "@/components/atoms/Separator.atom";
 import Education from "@/components/molecules/Education.molecule";
 import InfoSection from "@/components/molecules/InfoSection.molecule";
+import Other from "@/components/molecules/Other.molecule";
 import Person from "@/components/molecules/Person.molecule";
 import Project from "@/components/molecules/Project.molecule copy";
 import WorkPlace from "@/components/molecules/WorkPlace.molecule";
@@ -10,6 +11,7 @@ import {
   EDUCATION,
   EXPERIENCE,
   INTRO,
+  OTHER,
   PROJECTS,
   TECH_SKILLS,
   WORK,
@@ -163,6 +165,24 @@ export default function Home() {
               return (
                 <Fragment key={idx}>
                   <Project {...project} tech={linesFormatFE(project.tech)} />
+                  {!isLast && <Separator className="my-7" />}
+                </Fragment>
+              );
+            })}
+          </div>
+        </InfoSection>
+        <InfoSection sectionName="Other">
+          <div className="flex flex-col">
+            {OTHER.map(({ link, title, desc, linkLabel }, idx) => {
+              const isLast = idx === PROJECTS.length - 1;
+              return (
+                <Fragment key={idx}>
+                  <Other
+                    title={title}
+                    desc={desc}
+                    link={link}
+                    linkLabel={linkLabel}
+                  />
                   {!isLast && <Separator className="my-7" />}
                 </Fragment>
               );

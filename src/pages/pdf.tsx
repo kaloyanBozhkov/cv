@@ -3,6 +3,7 @@ import ListItem from "@/components/atoms/ListItemPdf.atom";
 import { SeparatorPDF } from "@/components/atoms/Separator.atom";
 import { EducationPDF } from "@/components/molecules/Education.molecule";
 import { InfoSectionPdf } from "@/components/molecules/InfoSection.molecule";
+import { OtherPDF } from "@/components/molecules/Other.molecule";
 import { PdfPerson } from "@/components/molecules/Person.molecule";
 import { ProjectPDF } from "@/components/molecules/Project.molecule copy";
 import { WorkPlacePDF } from "@/components/molecules/WorkPlace.molecule";
@@ -13,6 +14,7 @@ import {
   EDUCATION,
   EXPERIENCE,
   INTRO,
+  OTHER,
   PROJECTS,
   TECH_SKILLS,
   WORK,
@@ -241,6 +243,22 @@ export const MyCVDocument = () => (
             return (
               <Fragment key={idx}>
                 <ProjectPDF {...project} tech={linesFormatPDF(project.tech)} />
+                {!isLast && <SeparatorPDF className="my-7" />}
+              </Fragment>
+            );
+          })}
+        </InfoSectionPdf>
+        <InfoSectionPdf sectionName="Personal Projects">
+          {OTHER.map(({ title, desc, link, linkLabel }, idx) => {
+            const isLast = idx === PROJECTS.length - 1;
+            return (
+              <Fragment key={idx}>
+                <OtherPDF
+                  title={title}
+                  desc={desc}
+                  link={link}
+                  linkLabel={linkLabel}
+                />
                 {!isLast && <SeparatorPDF className="my-7" />}
               </Fragment>
             );
