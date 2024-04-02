@@ -267,6 +267,21 @@ export const PROJECTS = [
     demoLink: "",
   },
   {
+    title: "Custom CV",
+    entity: "React renderer for creating PDF CVs",
+    startDate: new Date("1/06/2023"),
+    endDate: new Date("1/06/2023"),
+    tech: [
+      "React, TypeScript",
+      "React-pdf, Tailwind",
+      "",
+      '"To craft a flawless CV that shines both online and in PDF format, finely tuned for Applicant Tracking Systems (ATS); a particularly overengineered piece of virtual paper."',
+    ],
+    repoUrl: "https://github.com/kaloyanBozhkov/cv",
+    projectLink: "https://kaloyanbozhkov.com",
+    demoLink: "",
+  },
+  {
     title: "EnryptVid",
     entity: "Image Manipulation & Rendering on the Edge",
     startDate: new Date("1/09/2022"),
