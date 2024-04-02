@@ -38,7 +38,7 @@ export const WORK = [
     positionTec: [],
     points: [
       "Advancing efforts to expand and enhance Project Mercury",
-      "Delivering on various real-life-like social environments to test human emotion against creative content.",
+      "Delivering on various real-life-like social environments to benchmark human emotion against creative content.",
       {
         label: "YouTube Shorts",
         desc: ", newest social platform that allows benchmarking the human emotion behind creative content with real-life-like UX.",
