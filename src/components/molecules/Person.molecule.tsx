@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CuteLink, { CuteLinkPdf } from "../atoms/CuteLink.atom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDown } from "@fortawesome/free-regular-svg-icons";
@@ -10,25 +9,25 @@ import {
   PDFDownloadLink,
 } from "@react-pdf/renderer";
 import { tw } from "tailwind.config";
-import { default as LinkNext } from "next/link";
 import { MyCVDocument } from "@/pages/pdf";
 import useClientVariable from "@/hooks/useClientVariable";
 import DotsLoader from "../atoms/DotsLoader.atom";
+import Profile3D from "../dynamic/Profile3D";
+import { useLuffy } from "@/store/luffy.store";
 
 const Person = ({
   name,
-  picSrc,
   linkedIn,
   gitHub,
   email,
 }: {
   name: string;
-  picSrc: string;
   email: string;
   linkedIn: string;
   gitHub: string;
 }) => {
-  const w = useClientVariable(() => window);
+  const w = useClientVariable(() => window),
+    { setAction } = useLuffy();
 
   return (
     <div className="flex flex-col-reverse flex-nowrap gap-4 sm:flex-row">
@@ -37,7 +36,11 @@ const Person = ({
           {name}
         </h1>
         <div className="h-px w-full bg-gray-400" />
-        <div className="flex flex-col gap-1 py-3">
+        <div
+          className="flex w-fit flex-col gap-1 py-3"
+          onMouseEnter={() => setAction("wave")}
+          onMouseLeave={() => setAction("standing")}
+        >
           <h2>
             <b>Email:</b>{" "}
             <a
@@ -47,12 +50,20 @@ const Person = ({
               {email}
             </a>
           </h2>
-          <div className="flex flex-row justify-items-center gap-2">
+          <div
+            className="flex w-fit flex-row justify-items-center gap-2"
+            onMouseEnter={() => setAction("wave")}
+            onMouseLeave={() => setAction("standing")}
+          >
             <CuteLink href={linkedIn}>LinkedIn</CuteLink>|
             <CuteLink href={gitHub}>GitHub</CuteLink>
           </div>
         </div>
-        <div className="mt-auto w-fit">
+        <div
+          className="mt-auto w-fit"
+          onMouseEnter={() => setAction("punch")}
+          onMouseLeave={() => setAction("standing")}
+        >
           {w && (
             <PDFDownloadLink
               document={<MyCVDocument />}
@@ -74,14 +85,10 @@ const Person = ({
           )}
         </div>
       </div>
-      <div className="min-w[150px] min-h-[150px]">
-        <Image
-          src={picSrc}
-          alt="My Picture"
-          className="h-auto w-fit border-[1px] border-gray-500 italic lg:max-w-[150px]"
-          width={150}
-          height={150}
-        />
+      <div className="relative h-[150px] w-[150px] border border-solid border-gray-400">
+        <div className="absolute inset-[-1.5px]">
+          <Profile3D />
+        </div>
       </div>
     </div>
   );
@@ -128,9 +135,11 @@ export const PdfPerson = ({
           </View>
         </View>
       </View>
-      <View style={tw("border-[1px] border-gray-500")}>
-        <ImagePdf src={picSrc} style={tw("h-[150px] w-[150px]")} />
-      </View>
+      {process.env.WITH_PROFILE_PIC_DPF && (
+        <View style={tw("border-[1px] border-gray-500")}>
+          <ImagePdf src={picSrc} style={tw("h-[150px] w-[150px]")} />
+        </View>
+      )}
     </View>
   );
 };

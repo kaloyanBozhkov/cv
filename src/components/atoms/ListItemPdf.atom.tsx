@@ -13,7 +13,7 @@ const ListItem = ({
       <View style={styles.bullet}>
         <Text>{"\u2022" + "   "}</Text>
       </View>
-      <Text>{children}</Text>
+      {typeof children === "string" ? <Text>{children}</Text> : children}
     </View>
   );
 };

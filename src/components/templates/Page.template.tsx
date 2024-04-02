@@ -1,12 +1,12 @@
 import { forwardRef, type ReactNode } from "react";
 import { tw } from "tailwind.config";
-import { Image as ImagePDF, usePDF, View } from "@react-pdf/renderer";
+import { Image as ImagePDF, View } from "@react-pdf/renderer";
 import { getBaseUrl } from "@/utils/common";
 
 const PageTemplate = forwardRef<HTMLDivElement, { children: ReactNode }>(
   function PageTemplate({ children }, ref) {
     return (
-      <div ref={ref} className="bg-noise min-h-full w-full">
+      <div ref={ref} className="min-h-full w-full bg-noise">
         <div className="mx-auto flex w-full max-w-screen-lg flex-col gap-14 p-4 sm:p-8">
           {children}
         </div>
@@ -33,16 +33,17 @@ export const PageTemplatePdf = ({ children }: { children: ReactNode }) => {
         )}
       >
         {/* Update these rows and cols to fit size of page if it increases */}
-        {new Array(10).fill(
-          <View style={tw("flex flex-col")}>
-            {new Array(50).fill(
+        {new Array(10).fill(null).map((_, idx) => (
+          <View key={idx} style={tw("flex flex-col")}>
+            {new Array(50).fill(null).map((_, idx) => (
               <ImagePDF
+                key={idx}
                 src={`${getBaseUrl(false)}/assets/images/noise.jpg`}
                 style={tw("w-[200px] h-[200px]")}
-              />,
-            )}
-          </View>,
-        )}
+              />
+            ))}
+          </View>
+        ))}
       </View>
     </View>
   );

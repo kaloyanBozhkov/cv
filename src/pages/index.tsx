@@ -39,7 +39,6 @@ export default function Home() {
       <PageTemplate>
         <Person
           name="Kaloyan Bozhkov"
-          picSrc="/assets/images/my-profile.png"
           linkedIn="https://www.linkedin.com/in/kaloyanbozhkov/"
           gitHub="https://github.com/kaloyanBozhkov"
           email="kaloyan@bozhkov.com"

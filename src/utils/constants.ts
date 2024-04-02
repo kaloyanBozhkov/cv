@@ -274,6 +274,7 @@ export const PROJECTS = [
     tech: [
       "React, TypeScript",
       "React-pdf, Tailwind",
+      "React Three Fiber",
       "",
       '"To craft a flawless CV that shines both online and in PDF format, finely tuned for Applicant Tracking Systems (ATS); a particularly overengineered piece of virtual paper."',
     ],
