@@ -1,4 +1,5 @@
 import { View } from "@react-pdf/renderer";
+import { twMerge } from "tailwind-merge";
 import { tw } from "tailwind.config";
 
 const Separator = ({
@@ -10,10 +11,12 @@ const Separator = ({
 }) => {
   return (
     <div
-      className={`h-px w-full bg-gray-400 ${
+      className={twMerge(
+        "h-px w-full bg-gray-400",
         double &&
-        `relative top-[2px] before:relative before:-top-[2px] before:block before:h-px before:w-full before:bg-gray-400 before:content-['']`
-      } ${className}`}
+          `relative top-[2px] before:relative before:-top-[2px] before:block before:h-px before:w-full before:bg-gray-400 before:content-['']`,
+        className,
+      )}
     />
   );
 };
@@ -28,7 +31,7 @@ export const SeparatorPDF = ({
   className?: string;
 }) => {
   return (
-    <View style={tw(`w-full flex flex-col gap-[1px]  ${className}`)}>
+    <View style={tw(twMerge("w-full flex flex-col gap-[1px]", className))}>
       <View style={tw(`h-px w-full bg-gray-400`)} />
       {double && <View style={tw(`h-px w-full bg-gray-400`)} />}
     </View>

@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 const DotsLoader = ({
   size,
   dotsBg,
@@ -18,19 +20,34 @@ const DotsLoader = ({
 
   return (
     <div
-      className={`relative inline h-[13px] w-[80px] ${sizeStyles} z-0 -ml-1 -mr-1`}
+      className={twMerge(
+        "relative z-0 -ml-1 -mr-1 inline h-[13px] w-[80px]",
+        sizeStyles,
+      )}
     >
       <div
-        className={`${dotStyle} left-[8px] z-[1] animate-[scale-in_0.6s_infinite]`}
+        className={twMerge(
+          "left-[8px] z-[1] animate-[scale-in_0.6s_infinite]",
+          dotStyle,
+        )}
       />
       <div
-        className={`${dotStyle} left-[8px] animate-[move-24px_0.6s_infinite]`}
+        className={twMerge(
+          "left-[8px] animate-[move-24px_0.6s_infinite]",
+          dotStyle,
+        )}
       />
       <div
-        className={`${dotStyle} left-[32px] z-[2] animate-[move-24px_0.6s_infinite]`}
+        className={twMerge(
+          "left-[32px] z-[2] animate-[move-24px_0.6s_infinite]",
+          dotStyle,
+        )}
       />
       <div
-        className={`${dotStyle} left-[56px] z-[1] animate-[scale-out_0.6s_infinite]`}
+        className={twMerge(
+          "left-[56px] z-[1] animate-[scale-out_0.6s_infinite]",
+          dotStyle,
+        )}
       />
     </div>
   );

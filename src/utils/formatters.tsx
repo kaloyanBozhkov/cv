@@ -1,6 +1,6 @@
 import CuteLink, { CuteLinkPdf } from "@/components/atoms/CuteLink.atom";
 import ListItem from "@/components/atoms/ListItemPdf.atom";
-import { Text } from "@react-pdf/renderer";
+import { Text, View } from "@react-pdf/renderer";
 import { tw } from "tailwind.config";
 
 export const formatDate = (d: Date) => `${d.getMonth() + 1}/${d.getFullYear()}`;

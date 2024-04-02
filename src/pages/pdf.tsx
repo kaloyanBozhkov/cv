@@ -5,7 +5,7 @@ import { EducationPDF } from "@/components/molecules/Education.molecule";
 import { InfoSectionPdf } from "@/components/molecules/InfoSection.molecule";
 import { OtherPDF } from "@/components/molecules/Other.molecule";
 import { PdfPerson } from "@/components/molecules/Person.molecule";
-import { ProjectPDF } from "@/components/molecules/Project.molecule copy";
+import { ProjectPDF } from "@/components/molecules/Project.molecule";
 import { WorkPlacePDF } from "@/components/molecules/WorkPlace.molecule";
 import { PageTemplatePdf } from "@/components/templates/Page.template";
 import useClientVariable from "@/hooks/useClientVariable";
@@ -186,6 +186,33 @@ export const MyCVDocument = () => (
             )}
           </View>
         </InfoSectionPdf>
+        <InfoSectionPdf sectionName="Publications">
+          {OTHER.map(({ title, desc, link, linkLabel }, idx) => {
+            const isLast = idx === PROJECTS.length - 1;
+            return (
+              <Fragment key={idx}>
+                <OtherPDF
+                  title={title}
+                  desc={desc}
+                  link={link}
+                  linkLabel={linkLabel}
+                />
+                {!isLast && <SeparatorPDF className="my-7" />}
+              </Fragment>
+            );
+          })}
+        </InfoSectionPdf>
+        <InfoSectionPdf sectionName="Personal Projects">
+          {PROJECTS.map((project, idx) => {
+            const isLast = idx === PROJECTS.length - 1;
+            return (
+              <Fragment key={idx}>
+                <ProjectPDF {...project} tech={linesFormatPDF(project.tech)} />
+                {!isLast && <SeparatorPDF className="my-7" />}
+              </Fragment>
+            );
+          })}
+        </InfoSectionPdf>
         <InfoSectionPdf sectionName="Education">
           {EDUCATION.map(({ lines, projects, ...educationProps }, idx) => {
             const isLast = idx === EDUCATION.length - 1;
@@ -233,33 +260,6 @@ export const MyCVDocument = () => (
                   className={isLast ? "mt-7" : "my-7"}
                   double={isLast}
                 />
-              </Fragment>
-            );
-          })}
-        </InfoSectionPdf>
-        <InfoSectionPdf sectionName="Personal Projects">
-          {PROJECTS.map((project, idx) => {
-            const isLast = idx === PROJECTS.length - 1;
-            return (
-              <Fragment key={idx}>
-                <ProjectPDF {...project} tech={linesFormatPDF(project.tech)} />
-                {!isLast && <SeparatorPDF className="my-7" />}
-              </Fragment>
-            );
-          })}
-        </InfoSectionPdf>
-        <InfoSectionPdf sectionName="Personal Projects">
-          {OTHER.map(({ title, desc, link, linkLabel }, idx) => {
-            const isLast = idx === PROJECTS.length - 1;
-            return (
-              <Fragment key={idx}>
-                <OtherPDF
-                  title={title}
-                  desc={desc}
-                  link={link}
-                  linkLabel={linkLabel}
-                />
-                {!isLast && <SeparatorPDF className="my-7" />}
               </Fragment>
             );
           })}

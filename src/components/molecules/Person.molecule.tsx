@@ -120,15 +120,11 @@ export const PdfPerson = ({
             </Link>
           </Text>
           <View
-            style={tw("flex flex-row justify-items-center gap-2  text-[14px]")}
+            style={tw("flex flex-row justify-items-center gap-2 text-[14px]")}
           >
-            <Text>
-              <CuteLinkPdf href={linkedIn}>LinkedIn</CuteLinkPdf>
-            </Text>
+            <CuteLinkPdf href={linkedIn}>LinkedIn</CuteLinkPdf>
             <Text style={tw("text-gray-500")}>|</Text>
-            <Text>
-              <CuteLinkPdf href={gitHub}>GitHub</CuteLinkPdf>
-            </Text>
+            <CuteLinkPdf href={gitHub}>GitHub</CuteLinkPdf>
           </View>
         </View>
       </View>

@@ -1,5 +1,3 @@
-import { formatDate } from "@/utils/formatters";
-import { type ReactNode } from "react";
 import CuteLink, { CuteLinkPdf } from "../atoms/CuteLink.atom";
 import { Text, View } from "@react-pdf/renderer";
 import { tw } from "tailwind.config";
@@ -47,7 +45,9 @@ export const OtherPDF = ({
     >
       <View style={tw("flex flex-row w-full justify-between gap-2")}>
         <Text style={tw("min-w-[300px] pr-8 text-3xl font-bold")}>{title}</Text>
-        <CuteLinkPdf href={link}>{linkLabel}</CuteLinkPdf>
+        <CuteLinkPdf href={link} className="text-[16px]">
+          {linkLabel}
+        </CuteLinkPdf>
       </View>
       <Text style={tw("text-[16px] mt-1 text-gray-500 font-normal")}>
         {desc}

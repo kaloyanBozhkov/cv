@@ -99,7 +99,7 @@ export const ProjectPDF = ({
       ) : (
         <View style={tw("-mt-4 font-mono flex flex-col")}>{tech}</View>
       )}
-      <View style={tw("mt-4 flex flex-row gap-2 text-[14px]")}>
+      <View style={tw("mt-4 flex flex-row gap-2 text-[14px] items-center")}>
         <CuteLinkPdf href={projectLink}>Live Link</CuteLinkPdf>
         {repoUrl && (
           <>

@@ -4,7 +4,7 @@ import Education from "@/components/molecules/Education.molecule";
 import InfoSection from "@/components/molecules/InfoSection.molecule";
 import Other from "@/components/molecules/Other.molecule";
 import Person from "@/components/molecules/Person.molecule";
-import Project from "@/components/molecules/Project.molecule copy";
+import Project from "@/components/molecules/Project.molecule";
 import WorkPlace from "@/components/molecules/WorkPlace.molecule";
 import PageTemplate from "@/components/templates/Page.template";
 import {
@@ -105,6 +105,37 @@ export default function Home() {
             )}
           </div>
         </InfoSection>
+        <InfoSection sectionName="Publications">
+          <div className="flex flex-col">
+            {OTHER.map(({ link, title, desc, linkLabel }, idx) => {
+              const isLast = idx === PROJECTS.length - 1;
+              return (
+                <Fragment key={idx}>
+                  <Other
+                    title={title}
+                    desc={desc}
+                    link={link}
+                    linkLabel={linkLabel}
+                  />
+                  {!isLast && <Separator className="my-7" />}
+                </Fragment>
+              );
+            })}
+          </div>
+        </InfoSection>
+        <InfoSection sectionName="Personal Projects">
+          <div className="flex flex-col">
+            {PROJECTS.map((project, idx) => {
+              const isLast = idx === PROJECTS.length - 1;
+              return (
+                <Fragment key={idx}>
+                  <Project {...project} tech={linesFormatFE(project.tech)} />
+                  {!isLast && <Separator className="my-7" />}
+                </Fragment>
+              );
+            })}
+          </div>
+        </InfoSection>
         <InfoSection sectionName="Education">
           <div className="flex flex-col">
             {EDUCATION.map(({ lines, projects, ...educationProps }, idx) => {
@@ -153,37 +184,6 @@ export default function Home() {
                     className={isLast ? "mt-7" : "my-7"}
                     double={isLast}
                   />
-                </Fragment>
-              );
-            })}
-          </div>
-        </InfoSection>
-        <InfoSection sectionName="Personal Projects">
-          <div className="flex flex-col">
-            {PROJECTS.map((project, idx) => {
-              const isLast = idx === PROJECTS.length - 1;
-              return (
-                <Fragment key={idx}>
-                  <Project {...project} tech={linesFormatFE(project.tech)} />
-                  {!isLast && <Separator className="my-7" />}
-                </Fragment>
-              );
-            })}
-          </div>
-        </InfoSection>
-        <InfoSection sectionName="Other">
-          <div className="flex flex-col">
-            {OTHER.map(({ link, title, desc, linkLabel }, idx) => {
-              const isLast = idx === PROJECTS.length - 1;
-              return (
-                <Fragment key={idx}>
-                  <Other
-                    title={title}
-                    desc={desc}
-                    link={link}
-                    linkLabel={linkLabel}
-                  />
-                  {!isLast && <Separator className="my-7" />}
                 </Fragment>
               );
             })}

@@ -9,10 +9,9 @@ export const TECH_SKILLS = [
   "CI/CD, Github Actions",
   "Cypress, Jest, Enzyme, React Testing Library",
   "Figma",
-  "Distributed Systems, Event-Driven Systems, Microservices, Monoliths",
 ];
 
-export const INTRO = `I've spent the past decade developing client and server-side software and bringing it to life in production. Personally, I fancy good system design, talking to people and taking action. These three things have been key to my growth and increased responsibilities at various jobs I've had.`;
+export const INTRO = `I've spent the past decade developing client and server-side software and bringing it to life in production. Personally, I fancy good system design, talking to people and taking action. These three things have been key to my growth and increased responsibilities at various roles I've had.`;
 
 export const EXPERIENCE = [
   `10+ yrs of experience with design and development of software systems`,
@@ -85,7 +84,7 @@ export const WORK = [
       },
       {
         label: "Facebook",
-        desc: ".. for seamless ad campaign performance testing",
+        desc: ", for seamless ad campaign performance testing",
         link: "https://www.youtube.com/watch?v=u7UPbwO7Dd4",
       },
       {
@@ -211,12 +210,38 @@ export const PROJECTS = [
     tech: [
       "TypeScript, Next.JS, NextAuth, Prisma, tRPC, Zod",
       "React, Zustand, SCSS, Mantine UI",
+      "ESLint, StyleLint & more",
       "DALL-E, Replicate, OpenAI, Stripe, Google Merchant",
       "Three.JS, Canvas",
       "AWS, Vercel, QStash",
     ],
     repoUrl: "",
     projectLink: "https://aicaramba.io/",
+    demoLink: "",
+  },
+  {
+    title: "SocksAI",
+    entity: "Mystery Next-gen Footwear",
+    startDate: new Date("10/10/2023"),
+    tech: [
+      "TypeScript, Next.JS",
+      "React, Zustand, SCSS, Mantine UI",
+      "ESLint, StyleLint & more",
+      "Stripe",
+      "Vercel",
+    ],
+    repoUrl: "",
+    projectLink: "https://aicaramba.io/",
+    demoLink: "",
+  },
+  {
+    title: "EnryptVid",
+    entity: "Image Manipulation & Rendering on the Edge",
+    startDate: new Date("1/09/2022"),
+    endDate: new Date("2/09/2022"),
+    tech: ["FFMPEG-WASM, TypeScript", "React, Mantine UI, Canvas"],
+    repoUrl: "https://github.com/kaloyanBozhkov/encrypt-vid",
+    projectLink: "https://kaloyanbozhkov.com/encrypt-vid/",
     demoLink: "",
   },
   {
@@ -233,21 +258,11 @@ export const PROJECTS = [
     demoLink: "",
   },
   {
-    title: "EnryptVid",
-    entity: "Image Manipulation & Rendering on the Edge",
-    startDate: new Date("1/09/2022"),
-    endDate: new Date("2/09/2022"),
-    tech: ["FFMPEG-WASM, TypeScript", "React, Mantine UI, Canvas"],
-    repoUrl: "https://github.com/kaloyanBozhkov/encrypt-vid",
-    projectLink: "https://kaloyanbozhkov.com/encrypt-vid/",
-    demoLink: "",
-  },
-  {
     title: "Mini-Blockchain",
     entity: "Linked-List and Blockchain Hashing with Proof of Work",
     startDate: new Date("2/09/2020"),
     endDate: new Date("2/09/2020"),
-    tech: ["React, SASS"],
+    tech: ["React, SCSS"],
     repoUrl: "https://github.com/kaloyanBozhkov/blockchain",
     projectLink: "https://blockchain-ips8eji9n-kaloyanbozhkov.vercel.app/",
     demoLink: "https://www.youtube.com/watch?v=wNI-cohMxcc",
@@ -268,8 +283,14 @@ export const PROJECTS = [
 export const OTHER = [
   {
     link: "https://medium.com/@kaloyan_17221/fix-vercel-next-js-fetch-failed-from-undici-polyfill-8c66346c9c2f",
-    linkLabel: "Medium Post",
+    linkLabel: "Article Link",
     title: "Next.JS + Vercel issue identified related to the undici polyfill",
     desc: "Helped 150+ engineers with solving an edge-case caused by an issue with the compiled undici polyfill used by Vercel and Next.JS",
+  },
+  {
+    link: "https://medium.com/@kaloyan_17221/migrating-from-planetscale-to-neon-33e57fef36ae",
+    linkLabel: "Article Link",
+    title: "Migrating from PlanetScale to Neon, using Prisma and pgloader",
+    desc: "Helped 57+ engineers with migrating from PlanetScale SQL to Neon PosgreSQL, following the announcement of the impending retirement of the PS Hobby plan.",
   },
 ];
