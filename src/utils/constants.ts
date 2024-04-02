@@ -37,7 +37,7 @@ export const WORK = [
     location: "remote",
     positionTec: [],
     points: [
-      "Coninuing work on growing Project Mercury further",
+      "Advancing efforts to expand and enhance Project Mercury",
       "Delivering on various real-life-like social environments to test human emotion against creative content.",
       {
         label: "YouTube Shorts",
