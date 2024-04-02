@@ -32,6 +32,22 @@ export const EXPERIENCE = [
 export const WORK = [
   {
     position: "Senior Full-Stack Engineer",
+    company: "Element Human",
+    startDate: new Date("06/06/2023"),
+    location: "remote",
+    positionTec: [],
+    points: [
+      "Coninuing work on growing Project Mercury further",
+      "Delivering on various real-life-like social environments to test human emotion against creative content.",
+      {
+        label: "YouTube Shorts",
+        desc: ", newest social platform that allows benchmarking the human emotion behind creative content with real-life-like UX.",
+        link: "https://cxmtoday.com/news/element-human-expands-influencer-ad-testing-platform-to-youtube-shorts/",
+      },
+    ],
+  },
+  {
+    position: "Senior Full-Stack Engineer",
     company: "Clutchy",
     startDate: new Date("06/06/2023"),
     endDate: new Date("11/30/2023"),
