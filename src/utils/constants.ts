@@ -38,10 +38,10 @@ export const WORK = [
     positionTec: [],
     points: [
       "Advancing efforts to expand and enhance Project Mercury",
-      "Delivering on various real-life-like social environments to benchmark human emotion against creative content.",
+      "Building new social platforms that allow benchmarking the human emotion behind creative content within real-life-like UX:",
       {
         label: "YouTube Shorts",
-        desc: ", newest social platform that allows benchmarking the human emotion behind creative content with real-life-like UX.",
+        desc: ", has unlocked benchmarking influencer marketing via YT",
         link: "https://cxmtoday.com/news/element-human-expands-influencer-ad-testing-platform-to-youtube-shorts/",
       },
     ],
@@ -342,3 +342,9 @@ export const OTHER = [
     desc: "Helped 57+ engineers with migrating from PlanetScale SQL to Neon PosgreSQL, following the announcement of the impending retirement of the PS Hobby plan.",
   },
 ];
+
+// @TODO dynamic metadata using this
+export const CANDIDATE = {
+  name: "Kaloyan D. Bozhkov",
+  role: "Senior Full-Stack Engineer",
+};

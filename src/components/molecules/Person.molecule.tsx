@@ -14,27 +14,54 @@ import useClientVariable from "@/hooks/useClientVariable";
 import DotsLoader from "../atoms/DotsLoader.atom";
 import Profile3D from "../dynamic/Profile3D";
 import { useLuffy } from "@/store/luffy.store";
+import { useMemo } from "react";
 
 const Person = ({
   name,
+  role,
   linkedIn,
   gitHub,
   email,
 }: {
   name: string;
+  role: string;
   email: string;
   linkedIn: string;
   gitHub: string;
 }) => {
   const w = useClientVariable(() => window),
-    { setAction } = useLuffy();
+    { setAction } = useLuffy(),
+    downloadBtn = useMemo(
+      () =>
+        w && (
+          <PDFDownloadLink
+            document={<MyCVDocument />}
+            fileName="kaloyan-bozhkov-full-stack-engineer-cv.pdf"
+          >
+            {({ loading }) =>
+              loading ? (
+                <div className="h-[20px]">
+                  <DotsLoader dotsBg="bg-gray-400" size="sm" />
+                </div>
+              ) : (
+                <div className="flex h-[20px] w-fit cursor-pointer flex-row flex-nowrap items-center gap-2 border-b-[1px] border-transparent font-light opacity-50 hover:border-gray-500 hover:text-gray-700 hover:opacity-100">
+                  <FontAwesomeIcon icon={faCircleDown} className="w-[15px]" />
+                  <p className="whitespace-nowrap">Download as PDF</p>
+                </div>
+              )
+            }
+          </PDFDownloadLink>
+        ),
+      [w],
+    );
 
   return (
     <div className="flex flex-col-reverse flex-nowrap gap-4 sm:flex-row">
       <div className="flex flex-1 flex-col">
-        <h1 className="text- py-3 text-5xl font-semibold tracking-tighter">
-          {name}
-        </h1>
+        <h2 className="-mb-[10px] text-2xl font-normal leading-[24px] tracking-tighter text-gray-500">
+          {role}
+        </h2>
+        <h1 className="py-3 text-5xl font-semibold tracking-tighter">{name}</h1>
         <div className="h-px w-full bg-gray-400" />
         <div
           className="flex w-fit flex-col gap-1 py-3"
@@ -64,25 +91,7 @@ const Person = ({
           onMouseEnter={() => setAction("punch")}
           onMouseLeave={() => setAction("standing")}
         >
-          {w && (
-            <PDFDownloadLink
-              document={<MyCVDocument />}
-              fileName="kaloyan-bozhkov-full-stack-engineer-cv.pdf"
-            >
-              {({ loading }) =>
-                loading ? (
-                  <div className="h-[20px]">
-                    <DotsLoader dotsBg="bg-gray-400" size="sm" />
-                  </div>
-                ) : (
-                  <div className="flex h-[20px] w-fit cursor-pointer flex-row flex-nowrap items-center gap-2 border-b-[1px] border-transparent font-light opacity-50 hover:border-gray-500 hover:text-gray-700 hover:opacity-100">
-                    <FontAwesomeIcon icon={faCircleDown} className="w-[15px]" />
-                    <p className="whitespace-nowrap">Download as PDF</p>
-                  </div>
-                )
-              }
-            </PDFDownloadLink>
-          )}
+          {downloadBtn}
         </div>
       </div>
       <div className="relative h-[150px] w-[150px] border border-solid border-gray-400">
@@ -100,10 +109,12 @@ export const PdfPerson = ({
   name,
   picSrc,
   linkedIn,
+  role,
   gitHub,
   email,
 }: {
   name: string;
+  role: string;
   picSrc: string;
   email: string;
   linkedIn: string;
@@ -112,6 +123,13 @@ export const PdfPerson = ({
   return (
     <View style={tw("flex flex-col-reverse flex-nowrap gap-4 sm:flex-row")}>
       <View style={tw("flex flex-1 flex-col")}>
+        <Text
+          style={tw(
+            "-mb-[20px] text-2xl font-semibold leading-[24px] tracking-tighter text-gray-500",
+          )}
+        >
+          {role}
+        </Text>
         <Text style={tw("py-3 text-5xl font-bold tracking-tighter")}>
           {name}
         </Text>

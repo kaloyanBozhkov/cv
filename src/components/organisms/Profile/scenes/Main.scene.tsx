@@ -6,6 +6,7 @@ import { useFrame } from "@react-three/fiber";
 import { deg2rad } from "../helpers.common";
 import { config, useSpring } from "@react-spring/three";
 import { useLuffy } from "@/store/luffy.store";
+import { Environment } from "@react-three/drei";
 
 const Main = () => {
   const mousePosition = useMousePosition(),
@@ -34,7 +35,8 @@ const Main = () => {
       <group ref={ref}>
         <Luffy />
       </group>
-      <ambientLight />
+      <ambientLight intensity={0.2} />
+      <Environment preset="forest" />
     </>
   );
 };

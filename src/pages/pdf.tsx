@@ -11,6 +11,7 @@ import { PageTemplatePdf } from "@/components/templates/Page.template";
 import useClientVariable from "@/hooks/useClientVariable";
 import { getBaseUrl } from "@/utils/common";
 import {
+  CANDIDATE,
   EDUCATION,
   EXPERIENCE,
   INTRO,
@@ -113,18 +114,19 @@ export default function PdfPage() {
 
 export const MyCVDocument = () => (
   <Document
-    title="Kaloyan Bozhkov | Full-Stack Engineer"
+    title={`${CANDIDATE.name} | ${CANDIDATE.role}`}
     subject="Full-Stack Engineer with 10+ Years of Experience Developing Software And Bringing It To Life In Production"
-    author="Kaloyan Bozhkov"
-    creator="Kaloyan Bozhkov"
-    producer="Kaloyan Bozhkov"
+    author={CANDIDATE.name}
+    creator={CANDIDATE.name}
+    producer={CANDIDATE.name}
     language="English"
     keywords="Full-Stack Engineer, 10+ years of experience, React, Next.JS, Node.JS, Rust, TypeScript, Figma, TailwindCSS, SCSS, Redux, Zustand, Zod, tRPC, REST, GraphQL"
   >
     <Page size="A2" style={tw("font-[SourceSans3]")} wrap={false}>
       <PageTemplatePdf>
         <PdfPerson
-          name="Kaloyan Bozhkov"
+          name={CANDIDATE.name}
+          role={CANDIDATE.role}
           picSrc="/assets/images/my-profile.png"
           linkedIn="https://www.linkedin.com/in/kaloyanbozhkov/"
           gitHub="https://github.com/kaloyanBozhkov"

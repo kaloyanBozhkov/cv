@@ -8,6 +8,7 @@ import Project from "@/components/molecules/Project.molecule";
 import WorkPlace from "@/components/molecules/WorkPlace.molecule";
 import PageTemplate from "@/components/templates/Page.template";
 import {
+  CANDIDATE,
   EDUCATION,
   EXPERIENCE,
   INTRO,
@@ -24,7 +25,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Kaloyan Bozhkov</title>
+        <title>{CANDIDATE.name}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
@@ -38,7 +39,8 @@ export default function Home() {
       </Head>
       <PageTemplate>
         <Person
-          name="Kaloyan Bozhkov"
+          name={CANDIDATE.name}
+          role={CANDIDATE.role}
           linkedIn="https://www.linkedin.com/in/kaloyanbozhkov/"
           gitHub="https://github.com/kaloyanBozhkov"
           email="kaloyan@bozhkov.com"
