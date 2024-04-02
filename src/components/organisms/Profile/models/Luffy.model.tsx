@@ -50,7 +50,9 @@ export function Luffy(props: JSX.IntrinsicElements["group"]) {
   useEffect(() => {
     if (!actions[action]) return;
     actions[action]!.reset().fadeIn(0.5).play();
-    return () => actions[action]!.reset().fadeOut(0.5);
+    return () => {
+      actions[action]!.reset().fadeOut(0.5);
+    };
   }, [actions, action]);
 
   return (
