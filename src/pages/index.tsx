@@ -108,7 +108,7 @@ export default function Home() {
         <InfoSection sectionName="Publications">
           <div className="flex flex-col">
             {OTHER.map(({ link, title, desc, linkLabel }, idx) => {
-              const isLast = idx === PROJECTS.length - 1;
+              const isLast = idx === OTHER.length - 1;
               return (
                 <Fragment key={idx}>
                   <Other
@@ -117,7 +117,7 @@ export default function Home() {
                     link={link}
                     linkLabel={linkLabel}
                   />
-                  {!isLast && <Separator className="my-7" />}
+                  <Separator className="my-7" double={isLast} />
                 </Fragment>
               );
             })}
@@ -130,7 +130,7 @@ export default function Home() {
               return (
                 <Fragment key={idx}>
                   <Project {...project} tech={linesFormatFE(project.tech)} />
-                  {!isLast && <Separator className="my-7" />}
+                  <Separator className="my-7" double={isLast} />
                 </Fragment>
               );
             })}

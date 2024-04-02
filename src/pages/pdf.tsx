@@ -188,7 +188,7 @@ export const MyCVDocument = () => (
         </InfoSectionPdf>
         <InfoSectionPdf sectionName="Publications">
           {OTHER.map(({ title, desc, link, linkLabel }, idx) => {
-            const isLast = idx === PROJECTS.length - 1;
+            const isLast = idx === OTHER.length - 1;
             return (
               <Fragment key={idx}>
                 <OtherPDF
@@ -197,7 +197,7 @@ export const MyCVDocument = () => (
                   link={link}
                   linkLabel={linkLabel}
                 />
-                {!isLast && <SeparatorPDF className="my-7" />}
+                <SeparatorPDF className="my-7" double={isLast} />
               </Fragment>
             );
           })}
@@ -208,7 +208,7 @@ export const MyCVDocument = () => (
             return (
               <Fragment key={idx}>
                 <ProjectPDF {...project} tech={linesFormatPDF(project.tech)} />
-                {!isLast && <SeparatorPDF className="my-7" />}
+                <SeparatorPDF className="my-7" double={isLast} />
               </Fragment>
             );
           })}

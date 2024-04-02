@@ -33,7 +33,7 @@ export const WORK = [
   {
     position: "Senior Full-Stack Engineer",
     company: "Element Human",
-    startDate: new Date("06/06/2023"),
+    startDate: new Date("01/01/2024"),
     location: "remote",
     positionTec: [],
     points: [
@@ -219,6 +219,22 @@ export const EDUCATION = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Automated IG Reels & Posts",
+    entity: "Daily AI-powered Content",
+    startDate: new Date("11/11/2023"),
+    endDate: new Date("12/12/2023"),
+    tech: [
+      "TypeScript, Next.JS, Prisma, Zod, REST",
+      "React, Remotion, Tailwind",
+      "Replicate, OpenAI, Meta Graph API",
+      "Canvas, Skia",
+      "AWS, QStash",
+    ],
+    repoUrl: "",
+    projectLink: "https://www.instagram.com/aicaramba.io/",
+    demoLink: "",
+  },
   {
     title: "AICaramba",
     entity: "AI-powered E-Commerce Platform",
