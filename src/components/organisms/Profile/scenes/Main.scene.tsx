@@ -1,4 +1,3 @@
-import { Environment } from "@react-three/drei";
 import { type ActionName, Luffy } from "../models/Luffy.model";
 import useMousePosition from "../hooks/useMousePosition";
 import { useRef } from "react";
@@ -35,7 +34,7 @@ const Main = () => {
       <group ref={ref}>
         <Luffy />
       </group>
-      <Environment files="/assets/models/potsdamer_platz_1k.hdr" />
+      <ambientLight />
     </>
   );
 };
