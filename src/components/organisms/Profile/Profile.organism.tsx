@@ -10,8 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceGrimace } from "@fortawesome/free-regular-svg-icons";
 import Stack from "@/components/layouts/Stack.layout";
 
-import { tw } from "tailwind.config";
-
 export type ProfileProps = Record<string, string>;
 
 const Profile = (_: ProfileProps) => {
