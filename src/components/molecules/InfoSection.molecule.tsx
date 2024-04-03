@@ -1,5 +1,6 @@
+import useTranslateDivWithScroll from "@/hooks/useTranslateDivWithScroll";
 import { Text, View } from "@react-pdf/renderer";
-import { type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { tw } from "tailwind.config";
 
 const InfoSection = ({
@@ -9,9 +10,22 @@ const InfoSection = ({
   sectionName: string;
   children: ReactNode;
 }) => {
+  const sectionLabelRef = useRef(null),
+    wrapperRef = useRef(null);
+
+  useTranslateDivWithScroll({
+    parentRef: wrapperRef,
+    childRef: sectionLabelRef,
+    margin: 20,
+    minScreenWidth: 640,
+  });
+
   return (
-    <div className="flex flex-col gap-8 sm:flex-row">
-      <h3 className="w-auto text-lg font-semibold italic sm:w-[115px]">
+    <div ref={wrapperRef} className="flex flex-col gap-8 sm:flex-row">
+      <h3
+        ref={sectionLabelRef}
+        className="h-fit w-auto text-lg font-semibold italic transition-none sm:w-[115px]"
+      >
         {sectionName}
       </h3>
       <div className="-mt-7 h-px w-[100px] bg-gray-500 sm:-mt-0 sm:h-[100px] sm:w-px" />
