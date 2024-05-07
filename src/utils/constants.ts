@@ -232,7 +232,7 @@ export const PROJECTS = [
       "AWS, QStash",
     ],
     repoUrl: "",
-    projectLink: "https://www.instagram.com/aicaramba.io/",
+    projectLink: "https://www.instagram.com/aicaramba.drops/",
     demoLink: "",
   },
   {
